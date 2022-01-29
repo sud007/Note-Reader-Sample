@@ -3,18 +3,21 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlinx-serialization'
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
+
     defaultConfig {
         applicationId "win.ca.demo.myapplication"
         minSdk 21
-        targetSdk 30
+        targetSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -46,6 +49,7 @@ dependencies {
     def coilVersion = '1.2.2'
     def viewBinding = '7.1.0'
 
+    implementation "androidx.fragment:fragment-ktx:1.2.5"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -62,6 +66,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifeCycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifeCycleVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltLifeCycleVersion"
     kapt "androidx.hilt:hilt-compiler:$hiltLifeCycleVersion"
     //ViewBinding
@@ -70,4 +75,6 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2"
+
 }
